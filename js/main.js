@@ -2,6 +2,39 @@ const hamburgBtn = document.querySelector('.hamburg-menu');
 const navBarTop = document.querySelector('.navigation-block-top');
 const ingElements = document.querySelectorAll('tr.component');
 const ingDescs = document.querySelectorAll('.about-block');
+const changePanels = document.querySelectorAll('.panel');
+const caruselBtns = document.querySelectorAll('.arrow');
+
+
+
+// No complete carusel
+
+// const caruselNext = () => {
+//   for (i = 0; i < changePanels.length; i++) {
+//     changePanels[i].style.display = 'none';
+//     changePanels[i + 1].style.display = 'flex';
+//   };
+// };
+
+// const caruselPrev = () => {
+//   for (i = 2; i != 0; i--) {
+//     changePanels[i].style.display = 'none';
+//     changePanels[i - i].style.display = 'flex';
+//   };
+// };
+
+
+// for (caruselBtn of caruselBtns) {
+//   caruselBtn.addEventListener('click', event => {
+//     event.preventDefault();
+//     target = event.target;
+//     if (target.classList.contains('right-button')) {
+//       caruselNext();
+//     } else {
+//       caruselPrev();
+//     };
+//   });
+// };
 
 
 
@@ -17,19 +50,6 @@ const showIngDesc = event => {
     ingDescs[trId - 1].classList.add('active-block');
   };
 };
-
-// const showIngDesc = event => {
-//   let tab = event.target;
-//   let tabId = tab.dataset.id;
-
-//   for (let i = 0; i < ingElements.length; i++) {
-//     ingElements[i].classList.remove('activetab');
-//     ingElements[tabId - 1].classList.add('activetab');
-
-//     ingDescs[i].classList.remove('active-block');
-//     ingDescs[tabId - 1].add('active');
-//   }
-// };
 
 for (ingElement of ingElements) {
   ingElement.addEventListener('click', showIngDesc)

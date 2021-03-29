@@ -273,6 +273,22 @@ body {
     align-items: center;
     margin: 50px 0;
     color: $color-grey;
+    .carusel {
+      display: flex;
+      flex-direction: row;
+      width: 955px;
+      height: 400px;
+      position: relative;
+    }
+    .panel {
+      width: 100%;
+      display: none;
+      &:first-child {
+        display: flex;
+        align-items: center;
+        width: 100%;
+      }
+    }
     .images {
       display: flex;
       margin-left: 140px;
@@ -469,6 +485,7 @@ body {
   }
 }
 
+//Facts tabs
 .component.activetab {
   border: 1px solid $color-grey;
   height: 60px;
