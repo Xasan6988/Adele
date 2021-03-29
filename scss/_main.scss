@@ -451,6 +451,9 @@ body {
     height: 30px;
     border-bottom: 1px solid $color-grey;
   }
+  .component {
+    cursor: pointer;
+  }
   .name {
     padding: 7px;
   }
@@ -465,8 +468,20 @@ body {
     box-shadow: 0px 6px 15px 0px darken($color-grey,30%);
   }
 }
+
+.component.activetab {
+  border: 1px solid $color-grey;
+  height: 60px;
+  background-color: white;
+  box-shadow: 0px 6px 15px 0px darken($color-grey,30%);
+}
+
 .about-block {
+  display: none;
+}
+.about-block.active-block {
   font-family: 'Raleway', sans-serif;
+  display: block;
   .description {
     width: 450px;
     font-weight: bold;
