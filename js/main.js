@@ -2,40 +2,84 @@ const hamburgBtn = document.querySelector('.hamburg-menu');
 const navBarTop = document.querySelector('.navigation-block-top');
 const ingElements = document.querySelectorAll('tr.component');
 const ingDescs = document.querySelectorAll('.about-block');
-const changePanels = document.querySelectorAll('.panel');
+const slides = document.querySelectorAll('.panel');
 const caruselBtns = document.querySelectorAll('.arrow');
 
 
 
-// No complete carusel
+let Slider = {
+  count: 0,
+  show(n) {
+    for (let slide of slides) {
+      slide.style.display = 'none';
+    }
+    console.log(slides[Slider.count])
+    slides[this.count].style.display = 'flex';
+  },
+  next() {
+    this.show(checkNext());
+  },
+  prev() {
+    this.show(checkPrev());
+  },
+};
 
-// const caruselNext = () => {
-//   for (i = 0; i < changePanels.length; i++) {
-//     changePanels[i].style.display = 'none';
-//     changePanels[i + 1].style.display = 'flex';
-//   };
+const checkNext = function(count){
+  count = Slider.count;
+  if (count > 1.5) {
+    return Slider.count = 0;
+  } else {
+    return Slider.count++;
+  }
+};
+
+const checkPrev = function(count){
+  count = Slider.count;
+  if (count <= 0) {
+    return Slider.count = 2;
+  } else {
+    return Slider.count--;
+  }
+}
+// let countSlide = 1;
+
+// const showSlide = n => {
+//   if (n > slides.length) {
+//     countSlide = slides.length;
+//   }
+//   if (n < 0) {
+//     countSlide = 1;
+//   }
+//   for (let slide of slides) {
+//     slide.style.display = 'none';
+//   }
+//   slides[countSlide - 1].style.display = 'flex';
 // };
 
-// const caruselPrev = () => {
-//   for (i = 2; i != 0; i--) {
-//     changePanels[i].style.display = 'none';
-//     changePanels[i - i].style.display = 'flex';
-//   };
+// const nextSlide = () => {
+//   showSlide(countSlide += 1);
+//   return countSlide++
 // };
+// const prevSlide = () => {
+//   showSlide(countSlide -= 1);
+// }
 
+for (caruselBtn of caruselBtns) {
+  caruselBtn.addEventListener('click', event => {
+    event.preventDefault();
+    let target = event.target.closest('.arrow');
+    console.log(target);
 
-// for (caruselBtn of caruselBtns) {
-//   caruselBtn.addEventListener('click', event => {
-//     event.preventDefault();
-//     target = event.target;
-//     if (target.classList.contains('right-button')) {
-//       caruselNext();
-//     } else {
-//       caruselPrev();
-//     };
-//   });
-// };
-
+    if (target.classList.contains('right-button')) {
+      Slider.next();
+      console.log(Slider.count);
+    };
+    if (target.classList.contains('left-button')) {
+      Slider.prev();
+      console.log(Slider.count);
+    };
+});
+}
 
 
 const showIngDesc = event => {

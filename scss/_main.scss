@@ -283,9 +283,9 @@ body {
     .panel {
       width: 100%;
       display: none;
+      align-items: center;
       &:first-child {
         display: flex;
-        align-items: center;
         width: 100%;
       }
     }
