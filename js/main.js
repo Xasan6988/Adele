@@ -6,7 +6,7 @@ const slides = document.querySelectorAll('.panel');
 const caruselBtns = document.querySelectorAll('.arrow');
 
 
-
+// Slider for result-region
 let Slider = {
   count: 0,
   show(n) {
@@ -41,28 +41,6 @@ const checkPrev = function(count){
     return Slider.count--;
   }
 }
-// let countSlide = 1;
-
-// const showSlide = n => {
-//   if (n > slides.length) {
-//     countSlide = slides.length;
-//   }
-//   if (n < 0) {
-//     countSlide = 1;
-//   }
-//   for (let slide of slides) {
-//     slide.style.display = 'none';
-//   }
-//   slides[countSlide - 1].style.display = 'flex';
-// };
-
-// const nextSlide = () => {
-//   showSlide(countSlide += 1);
-//   return countSlide++
-// };
-// const prevSlide = () => {
-//   showSlide(countSlide -= 1);
-// }
 
 for (caruselBtn of caruselBtns) {
   caruselBtn.addEventListener('click', event => {
@@ -81,7 +59,7 @@ for (caruselBtn of caruselBtns) {
 });
 }
 
-
+// tabs for facts-region
 const showIngDesc = event => {
   let tr = event.target.parentNode;
   let trId = tr.dataset.id
